@@ -1,13 +1,13 @@
-require_relative './spec_helper'
+require_relative '../spec_helper'
 
-describe StatsAPI do
+describe StatsLLC::API do
   let(:api) { described_class.new(
     api_key: ENV["STATS_API_KEY"],
     secret: ENV["STATS_SECRET"]
   ) }
 
   it 'has a version number' do
-    expect(StatsAPI::VERSION).not_to be nil
+    expect(StatsLLC::VERSION).not_to be nil
   end
 
   it 'does something useful' do

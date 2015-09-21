@@ -1,6 +1,6 @@
-require "stats_api/version"
+require "stats_llc/version"
 
-module StatsAPI
+module StatsLLC
   # Your code goes here...
   class << self
     def poop

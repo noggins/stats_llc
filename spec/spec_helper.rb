@@ -3,4 +3,4 @@ Bundler.setup
 Bundler.require(:default, :development)
 
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
-require 'stats_api'
+require 'stats_llc'
