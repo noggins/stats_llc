@@ -5,7 +5,7 @@ require 'stats_api/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "stats_api"
-  spec.version       = StatsApi::VERSION
+  spec.version       = StatsAPI::VERSION
   spec.authors       = ["tigershen23"]
   spec.email         = ["tigershen23@gmail.com"]
 
@@ -29,5 +29,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "rspec"
+  spec.add_development_dependency "rspec", "~> 3.3.0"
+  spec.add_development_dependency 'awesome_print', "~> 1.6.1"
+  spec.add_development_dependency 'dotenv', "~> 2.0.2"
 end
