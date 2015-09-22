@@ -4,3 +4,6 @@ Bundler.require(:default, :development)
 
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'stats_llc'
+
+Dotenv.load
+

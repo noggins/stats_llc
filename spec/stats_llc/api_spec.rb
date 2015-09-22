@@ -14,10 +14,12 @@ describe StatsLLC::API do
     expect(false).to eq(true)
   end
 
-  describe "#request" do
+  describe "#get" do
     it "successfully sends a request to the Stats API and receives a response" do
-      url = '/decode/languages/'
-      response = api.request(url)
+      path = '/decode/languages'
+      response = api.get(path)
+      binding.pry
+      sleep(1)
       expect(response.status).to eq 200
     end
   end
