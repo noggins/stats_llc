@@ -18,9 +18,8 @@ describe StatsLLC::API do
     it "successfully sends a request to the Stats API and receives a response" do
       path = '/decode/languages'
       response = api.get(path)
-      binding.pry
       sleep(1)
-      expect(response.status).to eq 200
+      expect(response.code).to eq 200
     end
   end
 end

@@ -23,10 +23,10 @@ module StatsLLC
       sig = _generate_signature
 
       api_key_param = "?api_key=#{@api_key}"
-      sig_param = "?sig=#{sig}"
+      sig_param = "&sig=#{sig}"
 
-      # TODO: clean up the generation of this path (e.g. join a params array)
-      path_with_params = "#{path}#{api_key_param}&#{sig_param}"
+      # TODO: clean up the generation of this path (e.g. join a params array with &)
+      path_with_params = "#{path}#{api_key_param}#{sig_param}"
 
       path_with_params
     end
