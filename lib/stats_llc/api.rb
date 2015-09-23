@@ -6,22 +6,17 @@ module StatsLLC
     include ::HTTParty
     base_uri 'http://api.stats.com/v1'
 
-    def initialize(api_key:, secret:, accept_type: 'json')
+    def initialize(api_key:, secret:)
       @api_key = api_key
       @secret = secret
-      @accept_type = accept_type
 
       _assign_default_params
     end
 
     def get(path:, rest_params: {}, query_string_params: {})
-      path_with_params = _build_path_with_params(path, rest_params, query_string_params)
+      path_with_params = _substitute_rest_params(path, rest_params)
 
       self.class.get(path_with_params, query: query_string_params)
-    end
-
-    def _build_path_with_params(path, rest_params, query_string_params)
-      path = _substitute_rest_params(path, rest_params)
     end
 
     def _assign_default_params
