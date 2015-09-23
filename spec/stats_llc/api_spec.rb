@@ -10,10 +10,6 @@ describe StatsLLC::API do
     expect(StatsLLC::VERSION).not_to be nil
   end
 
-  it 'does something useful' do
-    expect(false).to eq(true)
-  end
-
   describe "#get" do
     it "successfully sends a request to the Stats API and receives a response" do
       path = '/decode/languages'

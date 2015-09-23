@@ -4,34 +4,28 @@ require 'digest'
 module StatsLLC
   class API
     include ::HTTParty
-
     base_uri 'http://api.stats.com/v1'
 
     def initialize(api_key:, secret:, accept_type: 'json')
       @api_key = api_key
       @secret = secret
       @accept_type = accept_type
+
+      _assign_default_params
     end
 
     def get(path:, rest_params: {}, query_string_params: {})
       path_with_params = _build_path_with_params(path, rest_params, query_string_params)
 
-      self.class.get(path_with_params)
+      self.class.get(path_with_params, query: query_string_params)
     end
 
     def _build_path_with_params(path, rest_params, query_string_params)
-      sig = _generate_signature
-      api_key_param = "?api_key=#{@api_key}"
-      sig_param = "&sig=#{sig}"
-
-      # TODO: clean up the generation of this path (e.g. join a params array with &)
-      path = "#{path}#{api_key_param}#{sig_param}"
-
       path = _substitute_rest_params(path, rest_params)
-      path = _add_query_string_params(path, query_string_params)
+    end
 
-
-      path
+    def _assign_default_params
+      self.class.default_params api_key: @api_key, sig: _generate_signature
     end
 
     def _generate_signature
@@ -44,15 +38,6 @@ module StatsLLC
       rest_params.each do |key, value|
         param_to_interpolate = ":#{key}"
         path.sub!(param_to_interpolate, value)
-      end
-
-      path
-    end
-
-    def _add_query_string_params(path, query_string_params)
-      query_string_params.each do |param|
-        #_add_query_string_param(path, param)
-        path += "&#{param[0]}=#{param[1]}"
       end
 
       path
