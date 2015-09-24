@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["tigershen23@gmail.com"]
 
   spec.summary       = %q{Ruby wrapper for Stats, LLC API}
-  spec.description       = %q{Ruby wrapper for Stats, LLC API}
+  spec.description   = %q{Ruby wrapper for Stats, LLC API}
   spec.homepage      = "http://tigershen.me"
   spec.license       = "MIT"
 

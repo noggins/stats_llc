@@ -32,7 +32,7 @@ module StatsLLC
     def _substitute_rest_params(path, rest_params)
       rest_params.each do |key, value|
         param_to_interpolate = ":#{key}"
-        path.sub!(param_to_interpolate, value)
+        path.sub!(param_to_interpolate, value.to_s)
       end
 
       path
