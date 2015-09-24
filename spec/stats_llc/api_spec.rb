@@ -6,10 +6,6 @@ describe StatsLLC::API do
     secret: ENV["STATS_SECRET"]
   ) }
 
-  it 'has a version number' do
-    expect(StatsLLC::VERSION).not_to be nil
-  end
-
   describe "#get" do
     it "successfully sends a request to the Stats API and receives a response" do
       path = '/decode/languages'
